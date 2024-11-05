@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
-
-
+import AddtoDB from "../../Utility/AddtoDB";
+import {addToStoredReadList} from  "../../Utility/AddtoDB"
 const BookDetails = () => {
 
     const { bookId } = useParams();
@@ -10,6 +10,22 @@ const BookDetails = () => {
     const book = data.find(book => book.bookId === id)
     const { bookId: currebtBookId, image,author, review,bookName, category, tags, publisher, yearOfPublishing,totalPages, rating } = book;
 
+
+
+    const handleMarkRead = (id) => {
+            // understand what to store: book id:-
+            //Where to storr: db
+            //how will stay here: srrsy,list,collection:
+            //check: if not, add the book else add the book
+
+            
+            //    addToStoredReadList(id)
+     
+
+
+    }
+
+    
     return (
         
 
@@ -37,8 +53,8 @@ const BookDetails = () => {
                             <p className="text-xl text-gray-500">rating:           {rating} </p>
                         </div>
                         <div className="flex flex-row gap-6">
-                            <button className="btn btn-success mr-4 btn-outline">Read</button>
-                            <button className="btn btn-success btn-outline">WishList</button>
+                            <button className="btn btn-success mr-4 btn-outline" onClick={() =>handleMarkRead(bookId)}> Mark as Read</button>
+                            <button className="btn btn-success btn-outline"> Add to WishList</button>
                         </div>
 
 
